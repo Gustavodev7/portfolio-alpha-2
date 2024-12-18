@@ -1,0 +1,394 @@
+/* Remove espaçamentos e padding para deixar uniforme o layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Definimos as fontes e as cores padrão */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0e0e10; /* Cor de fundo do site */
+    color: #ffffff; /* Texto branco */
+    line-height: 1.6; /* Melhor espaçamento de linhas */
+    overflow-x: hidden; /* Evita a rolagem horizontal */
+}
+
+/* Deixa os links sem sublinhado */
+a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffcc00; /* Cor de destaque ao passar o mouse */
+}
+
+/* LAYOUT E NAVEGAÇÃO */
+/* Estilo do cabeçalho */
+header {
+    position: fixed; /* Fica fixo no topo */
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #1a1a1d;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+}
+
+/* Adiciona estilo nos menus de navegação */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+}
+
+nav ul {
+    list-style: none; /* Remove as bolinhas da lista */
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    font-size: 10px;
+    color: #ffffff;
+    text-transform: uppercase; /* Todas as letras em maiúsculo */
+    font-weight: 500;
+    padding: 10px 15px;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: #ffcc00; /* Destaque ao passar o mouse */
+    transition: 0.3s;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background: #ffcc00;
+    opacity: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+    opacity: 1;
+    transform: scaleX(1); /* Efeito de linha crescendo */
+}
+
+/* Estilo global das seções */
+section {
+    padding: 100px 20px;
+    min-height: 100vh; /* Cada seção ocupa ao menos 100% da altura da janela */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2 {
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ffcc00; /* Títulos em cor de destaque */
+}
+
+/* Estiliza os parágrafos */
+p {
+    max-width: 800px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 1.8;
+    color: #d3d3d3; /* Cor mais clara para o texto */
+}
+
+/* Animações e transições */
+/* Elementos que serão animados na rolagem */
+.reveal {
+    opacity: 0; /* Elemento começa invisível */
+    transform: translateY(100px); /* Começa deslocando para baixo */
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+/* Quando a classe 'active' é adicionada via JS o elemento se revela */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0); /* Volta à posição original */
+}
+
+/* SEÇÃO DE PROJETOS */
+/* Configura a grade de projetos */
+.projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Layout responsivo com colunas flexíveis */
+    gap: 40px; /* Espaçamento entre os itens */
+    margin-top: 50px;
+}
+
+/* Estilo de cada bloco de projeto */
+.projeto {
+    background-color: #222226;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Sombra suave */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    text-align: center;
+}
+
+/* Animação ao passar o mouse sobre os projetos */
+.projeto:hover {
+    transform: translateY(-10px); /* Move o projeto levemente para cima */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7); /* Melhora a sombra */
+}
+
+/* Estilo dos títulos dos projetos */
+.projeto h3 {
+    margin-bottom: 15px;
+    color: #ffcc00;
+    font-size: 20px;
+}
+
+/* Botões de download e links para GitHub */
+.projeto a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 15px;
+    background-color: #ffcc00;
+    color: #0e0e10;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.projeto a:hover {
+    background-color: #ffffff;
+    color: #0e0e10;
+}
+
+/* SEÇÃO DE CONTATO */
+.contato {
+    text-align: center;
+}
+
+.contato h2 {
+    margin-bottom: 20px;
+}
+
+.contato p {
+    margin-bottom: 20px;
+    font-size: 10px;
+}
+
+/* Estilização dos links de contato */
+.contato a {
+    color: #ffcc00;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* RODAPÉ */
+footer {
+    background-color: #1a1a1d;
+    padding: 20px 0;
+    text-align: center;
+    color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #d3d3d3;
+}
+
+form {
+    margin: 22px 0 ;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 620px;
+    width: 100%;
+}
+
+form input, form button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+form button {
+    background-color:#ffcc00 ;
+    color:#0e0e10 ;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0,3s ease;
+}
+
+form button:hover {
+    background-color:#ffffff ;
+}
+
+/* Estilo para o botão de remover projeto (X) */
+.remove-project {
+    position: absolute; /* Coloca o botão no canto superior direito */
+    top: 10px;
+    right: 10px;
+    background: none; /* Remove o fundo padrão do botão */
+    border: none; /* Remove a borda do botão */
+    color: #ff4444; /* Cor vermelha para o "X" */
+    font-size: 20px; /* Tamanho do ícone "X" */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.remove-project:hover {
+    color: #cc0000; /* Muda para um tom mais escuro ao passar o mouse */
+}
+
+/* Garante que o botão apareça sobre o conteúdo do projeto */
+.projeto {
+    position: relative;
+    background-color: #222226;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Resto das estilizações dos projetos */
+.projeto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* Botão de chat no canto inferior */
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #1e1e20;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s;
+}
+
+.chat-button:hover {
+    transform: scale(1.1);
+}
+
+.chat-button i {
+    font-size: 24px;
+}
+
+/* Widget de chat */
+.chat-widget {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background-color: #1e1e20;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    display: none; /* Escondido por padrão */
+    flex-direction: column;
+}
+
+/* Header do widget */
+.chat-widget-header {
+    background-color: #0e0e10;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-widget-header .close-chat {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Corpo do widget */
+.chat-widget-body {
+    padding: 10px;
+    height: calc(100% - 80px); /* Altura do widget menos header e footer */
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+/* Footer do widget */
+.chat-widget-footer {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-top: 2px solid #ffffff;
+}
+
+.chat-widget-footer input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.chat-widget-footer button {
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.chat-widget-footer button i {
+    margin-left: 5px;
+}
+
+.chat-icon {
+    width: 30px; /* Ajuste o tamanho da imagem */
+    height: 30px;
+    display: block;
+    margin: auto; /* Centraliza a imagem dentro do botão */
+
+}
